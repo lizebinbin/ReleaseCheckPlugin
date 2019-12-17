@@ -1,0 +1,42 @@
+<idea-plugin>
+    <id>com.moore.plugin.releaseCheck</id>
+    <name>Release Check</name>
+    <version>1.0.0</version>
+    <vendor email="moore.lzb@gmail.com" url="https://github.com/lizebinbin">@lizebin</vendor>
+
+    <description><![CDATA[Release Check</br>
+        Check the field before generate a apk
+    ]]></description>
+
+    <change-notes>First Commit.............................</change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <group id="org.jetbrains.tutorials.actions.GroupedActions" text="Release Check" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <!--检查-->
+            <action id="CheckTest"
+                    class="com.moore.checkrelease.action.CheckOperation"
+                    text="Release Check"
+                    description="check is the server is debug or release">
+            </action>
+            <!--输入检查项-->
+            <action id="com.moore.checkrelease.action.InputInfoAction"
+                    class="com.moore.checkrelease.action.InputInfoAction"
+                    text="InputCheckItem"
+                    description="com.moore.checkrelease.action.InputInfoAction">
+            </action>
+        </group>
+    </actions>
+
+</idea-plugin>
